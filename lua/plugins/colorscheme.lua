@@ -1,7 +1,7 @@
 return {
   {
-    "ellisonleao/gruvbox.nvim",
+    "folke/tokyonight.nvim",
     priority = 1000,
-    opts = { contrast = "" },
+    opts = { style = "storm" },
   },
 }
