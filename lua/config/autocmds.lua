@@ -1,4 +1,16 @@
 local group = vim.api.nvim_create_augroup("user_config", { clear = true })
+local last_checktime = 0
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  group = group,
+  callback = function()
+    local now = vim.uv.now()
+    if now - last_checktime >= 1000 then
+      last_checktime = now
+      vim.cmd("checktime")
+    end
+  end,
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = group,

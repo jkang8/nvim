@@ -1,0 +1,3 @@
+os:
+  edit: 'nvr --remote-tab "{{filename}}"'
+  editAtLine: 'nvr --remote-tab "+{{line}}" "{{filename}}"'

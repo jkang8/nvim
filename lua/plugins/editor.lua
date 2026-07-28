@@ -72,11 +72,11 @@ return {
         desc = "Delete buffer",
       },
       {
-        "<leader>gg",
+        "<leader>gs",
         function()
           Snacks.picker.git_status()
         end,
-        desc = "Git status",
+        desc = "Git status picker",
       },
       {
         "<leader>tt",
@@ -106,6 +106,68 @@ return {
         { "<leader>t", group = "terminal" },
         { "<leader>u", group = "ui" },
         { "<leader>w", group = "window" },
+      },
+    },
+  },
+  {
+    "lmilojevicc/herdr-splits.nvim",
+    opts = {},
+    keys = {
+      {
+        "<C-h>",
+        function()
+          require("herdr-splits").move_cursor_left()
+        end,
+        desc = "Navigate left",
+      },
+      {
+        "<C-j>",
+        function()
+          require("herdr-splits").move_cursor_down()
+        end,
+        desc = "Navigate down",
+      },
+      {
+        "<C-k>",
+        function()
+          require("herdr-splits").move_cursor_up()
+        end,
+        desc = "Navigate up",
+      },
+      {
+        "<C-l>",
+        function()
+          require("herdr-splits").move_cursor_right()
+        end,
+        desc = "Navigate right",
+      },
+      {
+        "<M-h>",
+        function()
+          require("herdr-splits").resize_left()
+        end,
+        desc = "Resize left",
+      },
+      {
+        "<M-j>",
+        function()
+          require("herdr-splits").resize_down()
+        end,
+        desc = "Resize down",
+      },
+      {
+        "<M-k>",
+        function()
+          require("herdr-splits").resize_up()
+        end,
+        desc = "Resize up",
+      },
+      {
+        "<M-l>",
+        function()
+          require("herdr-splits").resize_right()
+        end,
+        desc = "Resize right",
       },
     },
   },

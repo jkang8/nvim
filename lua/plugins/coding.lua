@@ -43,27 +43,20 @@ return {
         cmd = "Copilot",
         opts = {
           panel = { enabled = false },
-          suggestion = { enabled = false },
-        },
-      },
-      "giuxtaposition/blink-cmp-copilot",
-    },
-    opts = {
-      keymap = {
-        preset = "default",
-        ["<C-l>"] = { "select_and_accept", "fallback" },
-      },
-      sources = {
-        default = { "lsp", "path", "snippets", "buffer", "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            score_offset = 100,
-            async = true,
+          suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            hide_during_completion = false,
+            keymap = {
+              accept = "<C-l>",
+              dismiss = "<C-]>",
+            },
           },
         },
       },
+    },
+    opts = {
+      keymap = { preset = "default" },
       appearance = { nerd_font_variant = "mono" },
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 300 },

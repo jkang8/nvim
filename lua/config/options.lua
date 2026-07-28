@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 opt.breakindent = true
+opt.autoread = true
 opt.clipboard = "unnamedplus"
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.confirm = true

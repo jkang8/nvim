@@ -84,7 +84,7 @@ return {
 
           map("gd", vim.lsp.buf.definition, "Go to definition")
           map("gD", vim.lsp.buf.declaration, "Go to declaration")
-          map("gr", vim.lsp.buf.references, "References")
+          map("gr", Snacks.picker.lsp_references, "References")
           map("gri", vim.lsp.buf.implementation, "Go to implementation")
           map("K", vim.lsp.buf.hover, "Hover documentation")
           map("<leader>ca", vim.lsp.buf.code_action, "Code action")

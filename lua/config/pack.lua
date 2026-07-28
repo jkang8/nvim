@@ -11,12 +11,14 @@ local module_names = {
   ["stevearc/conform.nvim"] = "conform",
   ["nvim-lualine/lualine.nvim"] = "lualine",
   ["lewis6991/gitsigns.nvim"] = "gitsigns",
+  ["sindrets/diffview.nvim"] = "diffview",
   ["nvim-treesitter/nvim-treesitter-context"] = "treesitter-context",
   ["saghen/blink.cmp"] = "blink.cmp",
   ["zbirenbaum/copilot.lua"] = "copilot",
   ["olimorris/codecompanion.nvim"] = "codecompanion",
   ["mason-org/mason.nvim"] = "mason",
   ["mason-org/mason-lspconfig.nvim"] = "mason-lspconfig",
+  ["lmilojevicc/herdr-splits.nvim"] = "herdr-splits",
 }
 
 local specs = {}

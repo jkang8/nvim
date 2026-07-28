@@ -40,4 +40,39 @@ return {
       end,
     },
   },
+  {
+    "sindrets/diffview.nvim",
+    opts = {},
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git diff" },
+      { "<leader>gD", "<cmd>DiffviewClose<cr>", desc = "Close Git diff" },
+      { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "File history" },
+    },
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    init = function()
+      if vim.fn.executable("nvr") == 0 then
+        vim.g.lazygit_use_neovim_remote = 0
+        return
+      end
+
+      if vim.v.servername == "" then
+        vim.fn.serverstart()
+      end
+      vim.env.NVIM = vim.v.servername
+      vim.env.NVIM_LISTEN_ADDRESS = vim.v.servername
+      vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+      vim.g.lazygit_use_neovim_remote = 1
+      vim.g.lazygit_use_custom_config_file_path = 1
+      vim.g.lazygit_config_file_path = vim.fn.stdpath("config") .. "/lazygit.yml"
+    end,
+    keys = {
+      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+      { "<leader>gG", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit current file" },
+    },
+  },
 }

@@ -22,9 +22,21 @@
       "rev": "0f616b9a51cb9e2498834dfd99f6da6966158eba",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "herdr-splits.nvim": {
+      "rev": "107273e004e4f7ef07f13c83164d2cb2c51df65d",
+      "src": "https://github.com/lmilojevicc/herdr-splits.nvim"
+    },
+    "lazygit.nvim": {
+      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
+      "src": "https://github.com/kdheepak/lazygit.nvim"
     },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
@@ -49,6 +61,10 @@
     "mini.surround": {
       "rev": "8d5d0c5aa92449368ac251e85451d79d8f69d296",
       "src": "https://github.com/echasnovski/mini.surround"
+    },
+    "neogit": {
+      "rev": "37e0f22a2345bad1bffe01b31970885882f46275",
+      "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-lspconfig": {
       "rev": "7ab79bb1b57160a537f427ac8a6026102f12b701",
