@@ -3,11 +3,9 @@ local repo_name = function(repo)
 end
 
 local module_names = {
-  ["folke/snacks.nvim"] = "snacks",
   ["folke/which-key.nvim"] = "which-key",
-  ["echasnovski/mini.pairs"] = "mini.pairs",
-  ["echasnovski/mini.icons"] = "mini.icons",
-  ["echasnovski/mini.surround"] = "mini.surround",
+  ["ibhagwan/fzf-lua"] = "fzf-lua",
+  ["folke/zen-mode.nvim"] = "zen-mode",
   ["stevearc/conform.nvim"] = "conform",
   ["nvim-lualine/lualine.nvim"] = "lualine",
   ["lewis6991/gitsigns.nvim"] = "gitsigns",

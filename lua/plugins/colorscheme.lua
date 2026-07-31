@@ -1,4 +1,6 @@
 return {
+  { "ellisonleao/gruvbox.nvim" },
+  { "navarasu/onedark.nvim" },
   {
     "folke/tokyonight.nvim",
     lazy = false,

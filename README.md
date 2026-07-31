@@ -6,11 +6,9 @@ the built-in `vim.pack` package manager.
 ## Requirements
 
 - Neovim 0.12+
-- Git, ripgrep, and a C compiler
+- Git, `fzf`, ripgrep, and a C compiler
 - A Nerd Font for icons
 - `tree-sitter-cli` 0.26.1+
-- `neovim-remote` for LazyGit to open files and commit editors in this Neovim
-  instance: `uv tool install neovim-remote`
 
 Open Neovim and run `:checkhealth` after the first plugin installation.
 
@@ -29,18 +27,17 @@ Useful commands:
 
 Core mappings:
 
-- `<Space><Space>` smart file picker
+- `<Space><Space>` files
 - `<Space>ff` files, `<Space>/` fuzzy grep, `<Space>fb` buffers
 - `<Space>bd` delete buffer without closing its window
 - `[b` / `<Option-p>` previous buffer, `]b` / `<Option-n>` next buffer
 - `<Space>gd` open Git diff, `<Space>gD` close it, `<Space>gh` file history
-- `<Space>gg` open LazyGit, `<Space>gG` open it for the current file
-- In LazyGit, `e` opens the selected file in this Neovim; `C` opens the commit
-  editor in a split
+- `<Space>gg` open LazyGit
 - `<Space>gs` Git-status picker
 - `<Space>e` file explorer
 - `<Space>tt` terminal
 - `<Space>z` Zen mode
+- `<Space>ut` choose a theme
 - `<Space>cf` format
 - `<Space>uc` toggle pinned code context
 - `<Space>aa` AI action palette

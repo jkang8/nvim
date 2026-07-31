@@ -1,94 +1,133 @@
 return {
   {
-    "folke/snacks.nvim",
-    priority = 900,
-    lazy = false,
-    opts = {
-      bigfile = { enabled = true },
-      explorer = { enabled = true },
-      indent = { enabled = true },
-      input = { enabled = true },
-      notifier = { enabled = true },
-      picker = { enabled = true },
-      quickfile = { enabled = true },
-      scope = { enabled = true },
-      terminal = { enabled = true },
-      words = { enabled = true },
-      zen = {
-        toggles = {
-          dim = true,
-          git_signs = false,
-        },
+    "nvim-mini/mini.nvim",
+    config = function()
+      require("mini.bufremove").setup()
+      require("mini.cursorword").setup()
+      require("mini.files").setup()
+      require("mini.icons").setup()
+      require("mini.indentscope").setup()
+      require("mini.notify").setup()
+      require("mini.pairs").setup()
+      require("mini.pick").setup()
+      require("mini.surround").setup()
+
+      vim.notify = require("mini.notify").make_notify()
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
+    keys = {
+      {
+        "<leader>e",
+        function()
+          local minifiles = require("mini.files")
+          local file = vim.api.nvim_buf_get_name(0)
+          if file == "" or vim.uv.fs_stat(file) == nil then
+            minifiles.open(nil, false)
+            return
+          end
+
+          local cwd = vim.fs.normalize(vim.fn.getcwd())
+          local relative_file = vim.fs.relpath(cwd, file)
+          if relative_file == nil then
+            minifiles.open(file, false)
+            return
+          end
+
+          minifiles.open(cwd, false)
+          local branch = { cwd }
+          local path = cwd
+          for part in relative_file:gmatch("[^/]+") do
+            path = vim.fs.joinpath(path, part)
+            branch[#branch + 1] = path
+          end
+          minifiles.set_branch(branch)
+        end,
+        desc = "File explorer at current file",
+      },
+      {
+        "<leader>bd",
+        function()
+          require("mini.bufremove").delete(0, false)
+        end,
+        desc = "Delete buffer",
+      },
+      {
+        "<leader>tt",
+        function()
+          vim.cmd("botright split")
+          vim.cmd.terminal()
+          vim.cmd("startinsert")
+        end,
+        desc = "Terminal",
       },
     },
+  },
+  {
+    "ibhagwan/fzf-lua",
+    opts = {},
     keys = {
       {
         "<leader><space>",
         function()
-          Snacks.picker.smart()
+          require("fzf-lua").files()
         end,
-        desc = "Smart find files",
+        desc = "Find files",
       },
       {
         "<leader>ff",
         function()
-          Snacks.picker.files()
+          require("fzf-lua").files()
         end,
         desc = "Find files",
       },
       {
         "<leader>/",
         function()
-          Snacks.picker.grep()
+          require("fzf-lua").live_grep()
         end,
         desc = "Grep",
       },
       {
         "<leader>fb",
         function()
-          Snacks.picker.buffers()
+          require("fzf-lua").buffers()
         end,
         desc = "Buffers",
       },
       {
         "<leader>fr",
         function()
-          Snacks.picker.recent()
+          require("fzf-lua").oldfiles()
         end,
         desc = "Recent files",
       },
       {
-        "<leader>e",
-        function()
-          Snacks.explorer()
-        end,
-        desc = "File explorer",
-      },
-      {
-        "<leader>bd",
-        function()
-          Snacks.bufdelete()
-        end,
-        desc = "Delete buffer",
-      },
-      {
         "<leader>gs",
         function()
-          Snacks.picker.git_status()
+          require("fzf-lua").git_status()
         end,
         desc = "Git status picker",
       },
       {
-        "<leader>tt",
+        "<leader>ut",
         function()
-          Snacks.terminal()
+          require("fzf-lua").colorschemes()
         end,
-        desc = "Terminal",
+        desc = "Themes",
       },
+    },
+  },
+  {
+    "folke/zen-mode.nvim",
+    opts = {},
+    keys = {
       {
         "<leader>z",
         function()
-          Snacks.zen()
+          require("zen-mode").toggle()
         end,
         desc = "Toggle Zen mode",
       },
@@ -170,17 +209,6 @@ return {
         desc = "Resize right",
       },
     },
-  },
-  {
-    "echasnovski/mini.pairs",
-    event = "InsertEnter",
-    opts = {},
-  },
-  {
-    "echasnovski/mini.surround",
-    version = false,
-    event = "VeryLazy",
-    opts = {},
   },
   {
     "stevearc/conform.nvim",
