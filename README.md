@@ -19,9 +19,6 @@ Useful commands:
 
 `vim.pack` records installed revisions in `nvim-pack-lock.json`.
 - `:Mason` manages language servers
-- `:CodeCompanionChat` opens an AI chat using GitHub Copilot
-- `:Copilot auth` authenticates Copilot completions
-- `:checkhealth codecompanion` checks the AI integration
 - `:ConformInfo` reports formatter availability
 - `:checkhealth vim.lsp` reports LSP status
 
@@ -40,11 +37,6 @@ Core mappings:
 - `<Space>ut` choose a theme
 - `<Space>cf` format
 - `<Space>uc` toggle pinned code context
-- `<Space>aa` AI action palette
-- `<Space>ac` toggle AI chat
-- `<Space>ai` prompt an inline AI edit
-- `<Space>ad` add a visual selection to AI chat
-- `<C-l>` accept an inline Copilot suggestion
 - In normal mode, `<C-h/j/k/l>` navigate across Neovim and Herdr splits;
   `<Option-h/j/k/l>` resize them
 - `<Space>wh/wj/wk/wl` move between windows

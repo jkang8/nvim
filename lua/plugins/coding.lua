@@ -37,24 +37,6 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     event = "InsertEnter",
-    dependencies = {
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        opts = {
-          panel = { enabled = false },
-          suggestion = {
-            enabled = true,
-            auto_trigger = true,
-            hide_during_completion = false,
-            keymap = {
-              accept = "<C-l>",
-              dismiss = "<C-]>",
-            },
-          },
-        },
-      },
-    },
     opts = {
       keymap = { preset = "default" },
       appearance = { nerd_font_variant = "mono" },
@@ -62,57 +44,6 @@ return {
         documentation = { auto_show = true, auto_show_delay_ms = 300 },
       },
       signature = { enabled = true },
-    },
-  },
-  {
-    "olimorris/codecompanion.nvim",
-    version = "^19.0.0",
-    cmd = {
-      "CodeCompanion",
-      "CodeCompanionActions",
-      "CodeCompanionChat",
-      "CodeCompanionCmd",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = {
-      interactions = {
-        chat = { adapter = "copilot" },
-        inline = { adapter = "copilot" },
-      },
-      display = {
-        action_palette = {
-          provider = "snacks",
-        },
-      },
-    },
-    keys = {
-      {
-        "<leader>aa",
-        "<cmd>CodeCompanionActions<cr>",
-        mode = { "n", "v" },
-        desc = "AI actions",
-      },
-      {
-        "<leader>ac",
-        "<cmd>CodeCompanionChat Toggle<cr>",
-        mode = { "n", "v" },
-        desc = "AI chat",
-      },
-      {
-        "<leader>ai",
-        ":CodeCompanion ",
-        mode = { "n", "v" },
-        desc = "AI inline prompt",
-      },
-      {
-        "<leader>ad",
-        "<cmd>CodeCompanionChat Add<cr>",
-        mode = "v",
-        desc = "Add selection to AI chat",
-      },
     },
   },
   {

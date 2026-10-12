@@ -138,7 +138,6 @@ return {
     event = "VeryLazy",
     opts = {
       spec = {
-        { "<leader>a", group = "ai" },
         { "<leader>b", group = "buffer" },
         { "<leader>f", group = "find" },
         { "<leader>g", group = "git" },
